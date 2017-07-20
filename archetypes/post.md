@@ -15,6 +15,11 @@ autoThumbnailImage: false
 thumbnailImagePosition: "left"
 metaAlignment: center
 comments: false
+showDate: true
+showSocial: true
+showTags: true
+showPagination: true
+
 ---
 
 <!--more-->

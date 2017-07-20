@@ -1,6 +1,6 @@
 ---
 title: "Terminating Torrents"
-date: 2017-07-20T04:07:44+02:00
+date: 2017-03-19
 categories:
 - Applications
 - VPN
@@ -15,7 +15,7 @@ keywords:
 - Transmission
 - Torrents
 - VPN
-#thumbnailImage: /images/image.jpg
+thumbnailImage: /images/stop-sign.png
 #coverImage: /images/image.jpg
 autoThumbnailImage: false
 thumbnailImagePosition: "left"

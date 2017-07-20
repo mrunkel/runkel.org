@@ -18,7 +18,7 @@ comments: false
 When drawing a network diagram, think about whether it makes sense to draw a logical or a physical diagram. I'd say 90% of the time, a logical diagram is more useful than a physical diagram.
 <!--more-->
 
-### Differences between them:
+### Differences between physical and logical:
 
  - A physical diagram shows you the actual devices involved and the cables that connect them to each other. It should have information about which ports are used what color the cables are, etc.
  - A logical diagram will show the types of devices and the subnets in the network. It will not necessarily match up with the physical devices in the network. It should be labeled with the IPs of the subnet and the IP of each device.

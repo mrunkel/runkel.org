@@ -1,6 +1,6 @@
 ---
 title: "Things I Believe"
-date: 2017-07-10
+date: 2020-07-10
 categories:
 - general
 tags:
@@ -10,12 +10,13 @@ keywords:
 - tech
 - policy
 - braindump
-#thumbnailImage: /images/image.jpg
+thumbnailImage: /images/beliefs.jpg
 #coverImage: /images/image.jpg
 autoThumbnailImage: false
 thumbnailImagePosition: "left"
 metaAlignment: center
 comments: false
+showDate: false
 ---
 Over the years, I've encountered a lot of a technology platforms, programming methodologies, and ways of doing business.     During that time, I've come up with thoughts and ideas that guide me through my working life.  This is of course the ideal.  I've fallen short many times and will continue to do so I'm sure (See below...).
 <!--more-->
