@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Smtp on Marc Runkel&#39;s Blog</title>
+    <link>http://runkel.org/tags/smtp/</link>
+    <description>Recent content in Smtp on Marc Runkel&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 13 Aug 2008 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://runkel.org/tags/smtp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Troubleshooting SMTP</title>
+      <link>http://runkel.org/2008/08/troubleshooting-smtp/</link>
+      <pubDate>Wed, 13 Aug 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://runkel.org/2008/08/troubleshooting-smtp/</guid>
+      <description>&lt;p&gt;Internet email is easy to troubleshoot if you do it step by step.   This is a quick guide to troubleshooting what&amp;rsquo;s wrong when you can&amp;rsquo;t send or receive email.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

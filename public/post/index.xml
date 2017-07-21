@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Marc Runkel&#39;s Blog</title>
+    <link>http://runkel.org/post/</link>
+    <description>Recent content in Posts on Marc Runkel&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 10 Jul 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://runkel.org/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Things I Believe</title>
+      <link>http://runkel.org/2020/07/things-i-believe/</link>
+      <pubDate>Fri, 10 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://runkel.org/2020/07/things-i-believe/</guid>
+      <description>&lt;p&gt;Over the years, I&amp;rsquo;ve encountered a lot of a technology platforms, programming methodologies, and ways of doing business.     During that time, I&amp;rsquo;ve come up with thoughts and ideas that guide me through my working life.  This is of course the ideal.  I&amp;rsquo;ve fallen short many times and will continue to do so I&amp;rsquo;m sure (See below&amp;hellip;).
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Drawing A Network Diagram</title>
+      <link>http://runkel.org/2017/07/drawing-a-network-diagram/</link>
+      <pubDate>Wed, 12 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://runkel.org/2017/07/drawing-a-network-diagram/</guid>
+      <description>&lt;p&gt;When drawing a network diagram, think about whether it makes sense to draw a logical or a physical diagram. I&amp;rsquo;d say 90% of the time, a logical diagram is more useful than a physical diagram.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Terminating Torrents</title>
+      <link>http://runkel.org/2017/03/terminating-torrents/</link>
+      <pubDate>Sun, 19 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://runkel.org/2017/03/terminating-torrents/</guid>
+      <description>&lt;p&gt;I don&amp;rsquo;t often Torrent, but when I do, it&amp;rsquo;s my business and no one else&amp;rsquo;s.
+
+So, this is a quick write up for how to pause your torrents if your VPN goes down.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Updating All LXD Containers</title>
+      <link>http://runkel.org/2017/03/updating-all-lxd-containers/</link>
+      <pubDate>Thu, 02 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://runkel.org/2017/03/updating-all-lxd-containers/</guid>
+      <description>&lt;p&gt;This script allows you to upgrade the OS on all your lxd containers. It could easily be modified to run whatever you&amp;rsquo;d like.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>The only important rule of the Scrum process.</title>
+      <link>http://runkel.org/2016/09/the-only-important-rule-of-the-scrum-process./</link>
+      <pubDate>Sun, 04 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://runkel.org/2016/09/the-only-important-rule-of-the-scrum-process./</guid>
+      <description>&lt;p&gt;There are many blog posts about scrum.  There are sacred texts and high-priests.  
+&lt;em&gt;Most of that stuff is malarkey.&lt;/em&gt;    If your company has a full time Agile Coach, run for the hills.   Also, if you&amp;rsquo;re a full time agile coach, stop reading. You&amp;rsquo;re not going to like what I say.
+
+Most of the scrum process can be tailored and adjusted for your workflow.  The true magic of the scrum process in the inviolability of the scrum.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Troubleshooting SMTP</title>
+      <link>http://runkel.org/2008/08/troubleshooting-smtp/</link>
+      <pubDate>Wed, 13 Aug 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://runkel.org/2008/08/troubleshooting-smtp/</guid>
+      <description>&lt;p&gt;Internet email is easy to troubleshoot if you do it step by step.   This is a quick guide to troubleshooting what&amp;rsquo;s wrong when you can&amp;rsquo;t send or receive email.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

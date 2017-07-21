@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>General on Marc Runkel&#39;s Blog</title>
+    <link>http://runkel.org/categories/general/</link>
+    <description>Recent content in General on Marc Runkel&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 10 Jul 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://runkel.org/categories/general/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Things I Believe</title>
+      <link>http://runkel.org/2020/07/things-i-believe/</link>
+      <pubDate>Fri, 10 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://runkel.org/2020/07/things-i-believe/</guid>
+      <description>&lt;p&gt;Over the years, I&amp;rsquo;ve encountered a lot of a technology platforms, programming methodologies, and ways of doing business.     During that time, I&amp;rsquo;ve come up with thoughts and ideas that guide me through my working life.  This is of course the ideal.  I&amp;rsquo;ve fallen short many times and will continue to do so I&amp;rsquo;m sure (See below&amp;hellip;).
+&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
