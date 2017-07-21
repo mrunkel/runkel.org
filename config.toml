@@ -1,4 +1,4 @@
-baseURL = "http://runkel.org/"
+baseURL = "https://runkel.org/"
 languageCode = "en-us"
 title = "Marc Runkel's Blog"
 defaultContentLanguage = "en-us"
