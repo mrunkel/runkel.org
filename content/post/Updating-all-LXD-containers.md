@@ -20,7 +20,8 @@ showSocial: true
 showTags: true
 showPagination: true
 ---
-A handy script to run commands on all your lxd containers
+This script allows you to upgrade the OS on all your lxd containers. It could easily be modified to run whatever you'd like.
+
 <!--more-->
 {{< codeblock "updateAllContainers.sh" "bash" >}}
 #!/bin/bash

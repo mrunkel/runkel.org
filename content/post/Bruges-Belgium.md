@@ -1,6 +1,7 @@
 ---
-title: "Bruges Belgium"
-date: 2017-07-20T19:57:32+02:00
+title: "Bruges, Belgium"
+draft: true
+date: 2017-07-20
 categories:
 - travel
 - Europe
