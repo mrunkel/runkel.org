@@ -48,6 +48,7 @@ Business Processes
 
 Software Development
 ---
+* Clarity beats clever.  Sometimes, high performance is what should be coded for at all costs, these are rare moments.  In general, you should be writing code for clarity of purpose.  It's far, far better if a future programmer can understand the intent of your code quickly and clearly than if you can show off some particuarly clever coding.  Who knows, that future programmer might just be you. :)
 * When working in a team, never commit code you haven't tested extensively.  There is a reason the command is called git blame!
 * If your company doesn't pass the [Joel Test](https://www.joelonsoftware.com/2000/08/09/the-joel-test-12-steps-to-better-code/), passing it should be your top priority.
 * Agile and Scrum are not religions.  You don't need priests, you shouldn't have sacred texts.  Throw out or adjust what doesn't work for your company. Except for [this](/2016/09/the-only-important-rule-of-the-scrum-process.)!
