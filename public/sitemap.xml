@@ -3,8 +3,8 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://runkel.org/2020/07/things-i-believe/</loc>
-    <lastmod>2020-07-10T00:00:00+00:00</lastmod>
+    <loc>https://runkel.org/2017/09/how-to-pick-a-password/</loc>
+    <lastmod>2017-09-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -15,6 +15,11 @@
   <url>
     <loc>https://runkel.org/2017/07/drawing-a-network-diagram/</loc>
     <lastmod>2017-07-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://runkel.org/2017/07/things-i-believe/</loc>
+    <lastmod>2017-07-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -80,7 +85,7 @@
   
   <url>
     <loc>https://runkel.org/categories/general/</loc>
-    <lastmod>2020-07-10T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -104,7 +109,7 @@
   
   <url>
     <loc>https://runkel.org/</loc>
-    <lastmod>2020-07-10T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -128,13 +133,13 @@
   
   <url>
     <loc>https://runkel.org/post/</loc>
-    <lastmod>2020-07-10T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://runkel.org/tags/principles/</loc>
-    <lastmod>2020-07-10T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -176,7 +181,7 @@
   
   <url>
     <loc>https://runkel.org/tags/thoughts/</loc>
-    <lastmod>2020-07-10T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

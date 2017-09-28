@@ -1,5 +1,5 @@
 ---
-title: "Drawing A Network Diagram"
+title: "Drawing a Network Diagram"
 date: 2017-07-12
 categories:
 - sysadmin
