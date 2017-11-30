@@ -22,7 +22,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.29">
+    <meta name="generator" content="Hugo 0.31.1">
     <meta name="theme" content="Tranquilpeak 0.3.1-BETA">
     <title>Terminating Torrents</title>
     <meta name="author" content="Marc Runkel">
@@ -290,13 +290,11 @@ So, this is a quick write up for how to pause your torrents if your VPN goes dow
 
 <p>Then install the transmission client via brew (don&rsquo;t worry, this only installs the command line utilities, not the application) by opening the terminal and running:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="">brew install transmission client</span></code></pre>
-</div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brew install transmission client</code></pre></div>
 
 <p>If necessary configure the transmission client to work with your installation.  If you didn&rsquo;t change any defaults, it should just work.  Running:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="">transmission-remote -l</span></code></pre>
-</div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">transmission-remote -l</code></pre></div>
 
 <p>is a good test to verify that the script is talking to transmission properly.</p>
 
