@@ -6,10 +6,20 @@
     <description>Recent content in Applications on Marc Runkel&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 19 Mar 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 19 Jul 2018 10:36:55 +0200</lastBuildDate>
     
 	<atom:link href="https://runkel.org/categories/applications/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Free Software</title>
+      <link>https://runkel.org/2018/07/free-software/</link>
+      <pubDate>Thu, 19 Jul 2018 10:36:55 +0200</pubDate>
+      
+      <guid>https://runkel.org/2018/07/free-software/</guid>
+      <description>&lt;p&gt;Here is a really cool list of free software based on &lt;a href=&#34;https://www.reddit.com/r/AskReddit/comments/7x639l/what_free_software_is_so_good_you_cant_believe/du6pw11/&#34;&gt;this reddit post&lt;/a&gt;
+&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Terminating Torrents</title>

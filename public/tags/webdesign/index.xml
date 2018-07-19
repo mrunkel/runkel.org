@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Webdesign on Marc Runkel&#39;s Blog</title>
+    <link>https://runkel.org/tags/webdesign/</link>
+    <description>Recent content in Webdesign on Marc Runkel&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 19 Jul 2018 12:09:06 +0200</lastBuildDate>
+    
+	<atom:link href="https://runkel.org/tags/webdesign/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>GDPR Wrong</title>
+      <link>https://runkel.org/2018/07/gdpr-wrong/</link>
+      <pubDate>Thu, 19 Jul 2018 12:09:06 +0200</pubDate>
+      
+      <guid>https://runkel.org/2018/07/gdpr-wrong/</guid>
+      <description>&lt;p&gt;The GDPR is a new EU wide legislation that harmonizes the handling of personal data for all EU
+citizens.  You can read an a decent executive summary from &lt;a href=&#34;https://www.zdnet.com/article/gdpr-an-executive-guide-to-what-you-need-to-know/&#34;&gt;ZDNet&lt;/a&gt; or you can
+read about it from the &lt;a href=&#34;https://ec.europa.eu/commission/priorities/justice-and-fundamental-rights/data-protection/2018-reform-eu-data-protection-rules_en&#34;&gt;EU&lt;/a&gt;.
+&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

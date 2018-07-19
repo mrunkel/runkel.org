@@ -6,7 +6,7 @@
     <description>Recent content in Categories on Marc Runkel&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 19 Mar 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 19 Jul 2018 10:36:55 +0200</lastBuildDate>
     
 	<atom:link href="https://runkel.org/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Applications</title>
       <link>https://runkel.org/categories/applications/</link>
-      <pubDate>Sun, 19 Mar 2017 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 19 Jul 2018 10:36:55 +0200</pubDate>
       
       <guid>https://runkel.org/categories/applications/</guid>
       <description></description>
@@ -26,6 +26,15 @@
       <pubDate>Wed, 13 Aug 2008 00:00:00 +0000</pubDate>
       
       <guid>https://runkel.org/categories/email/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gdpr</title>
+      <link>https://runkel.org/categories/gdpr/</link>
+      <pubDate>Thu, 19 Jul 2018 12:09:06 +0200</pubDate>
+      
+      <guid>https://runkel.org/categories/gdpr/</guid>
       <description></description>
     </item>
     
@@ -57,6 +66,15 @@
     </item>
     
     <item>
+      <title>Politics</title>
+      <link>https://runkel.org/categories/politics/</link>
+      <pubDate>Thu, 19 Jul 2018 12:09:06 +0200</pubDate>
+      
+      <guid>https://runkel.org/categories/politics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Process</title>
       <link>https://runkel.org/categories/process/</link>
       <pubDate>Sun, 04 Sep 2016 00:00:00 +0000</pubDate>
@@ -68,7 +86,7 @@
     <item>
       <title>Software</title>
       <link>https://runkel.org/categories/software/</link>
-      <pubDate>Sun, 04 Sep 2016 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 19 Jul 2018 10:36:55 +0200</pubDate>
       
       <guid>https://runkel.org/categories/software/</guid>
       <description></description>
