@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="abbb1f9c-c2f0-4f99-bc3d-c939b4148470" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/hugo-tranquilpeak-theme/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hugo-tranquilpeak-theme/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/post/gdpr-wrong.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/post/gdpr-wrong.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,8 +26,8 @@
         <entry file="file://$PROJECT_DIR$/content/post/gdpr-wrong.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="199">
-                <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+              <first_editor relative-caret-position="363">
+                <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
               </first_editor>
               <second_editor />
             </state>
@@ -173,12 +172,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1531992923319</updated>
-      <workItem from="1531992924503" duration="4068000" />
+      <workItem from="1531992924503" duration="4248000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4068000" />
+    <option name="totallyTimeSpent" value="4248000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="23" width="2560" height="1413" extended-state="6" />
@@ -288,8 +287,8 @@
     <entry file="file://$PROJECT_DIR$/content/post/gdpr-wrong.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="199">
-            <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+          <first_editor relative-caret-position="363">
+            <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
           </first_editor>
           <second_editor />
         </state>

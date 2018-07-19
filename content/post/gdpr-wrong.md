@@ -9,7 +9,7 @@ tags:
 - webdesign
 keywords:
 - tech
-#thumbnailImage: /images/image.jpg
+thumbnailImage: /images/fail-tn.png
 #coverImage: /images/image.jpg
 autoThumbnailImage: false
 thumbnailImagePosition: "left"
