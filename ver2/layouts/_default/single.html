@@ -1,0 +1,9 @@
+{{ define "main" }}
+<h1 class="text-3xl">{{ .Title }}</h1>
+<div class="space-y-4">
+  {{ partial "metadata.html" . }}
+  <div class="">
+    {{ .Content }}
+  </div>
+</div>
+{{ end }}

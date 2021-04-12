@@ -22,7 +22,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.31.1">
+    <meta name="generator" content="Hugo 0.82.0">
     <meta name="theme" content="Tranquilpeak 0.3.1-BETA">
     <title>Troubleshooting SMTP</title>
     <meta name="author" content="Marc Runkel">
@@ -73,16 +73,18 @@
 
     
       
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-102689518-1', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-102689518-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-
     
     
   </head>
@@ -266,37 +268,24 @@ ga('send', 'pageview');
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p>Internet email is easy to troubleshoot if you do it step by step.   This is a quick guide to troubleshooting what&rsquo;s wrong when you can&rsquo;t send or receive email.</p>
-
-<p>
-<em>Note: This article was written almost 10 years ago.  While it&rsquo;s still mostly true, it doesn&rsquo;t talk about encryption at all, which is fairly commonplace in the world of SMTP today.  Back then SPF and DKIM weren&rsquo;t around either.   For basic troubleshooting, it&rsquo;s still valid.</em></p>
-
+<p><em>Note: This article was written almost 10 years ago.  While it&rsquo;s still mostly true, it doesn&rsquo;t talk about encryption at all, which is fairly commonplace in the world of SMTP today.  Back then SPF and DKIM weren&rsquo;t around either.   For basic troubleshooting, it&rsquo;s still valid.</em></p>
 <p>Here&rsquo;s how it works, when you write your email, it gets submitted into the mail system and, if the destination is off server, ends up with your sending servers SMTP subsystem.</p>
-
-<p>I&rsquo;m not going to talk about how to configure your email, there are lots of really terrific guides on the Internet on how to do that (just google &ldquo;set up <name of email software on <name of operating system>&rdquo;).  I&rsquo;m going to talk about how to figure out what is wrong when it doesn&rsquo;t work after you&rsquo;ve completed all theose steps.</p>
-
+<p>I&rsquo;m not going to talk about how to configure your email, there are lots of really terrific guides on the Internet on how to do that (just google &ldquo;set up &lt;name of email software on <!-- raw HTML omitted -->&quot;).  I&rsquo;m going to talk about how to figure out what is wrong when it doesn&rsquo;t work after you&rsquo;ve completed all theose steps.</p>
 <p>Here&rsquo;s what normally happens:</p>
-
 <ol>
 <li>The SMTP server program tries to figure out where to send your email. This is done by doing a DNS lookup for an MX record on the domain part of the address. (If there is no MX record, it will do a normal query for the domain part, if that doesn&rsquo;t work, you get a bounce message saying that the message couldn&rsquo;t be delivered.  If your system is really borked, that message will be sitting in the outgoing mail queue too!).</li>
 <li>The server attempts to open a connection on TCP port 25 to the remote IP determined in step 1 above.</li>
 <li>If successful, it does it&rsquo;s handshaking to determine encryption, authentication, etc.</li>
 <li>It sends the message.   Once it gets the OK from the remote side, it deletes the message.</li>
 </ol>
-
 <p>While cofiguring a new mail server (or moving it to a new IP) there are lots of things that need to work just to make basic mail flow, particularly from the world in.</p>
-
 <p>I&rsquo;ve always found it useful to perform these steps manually in order to identify where things might not be working.</p>
-
 <h2 id="replicating-the-process">Replicating the process</h2>
-
 <p>Start off by doing a dig on the domain name in question.   If you&rsquo;re on MacOS, you&rsquo;re in luck, dig is installed by default.  If you&rsquo;re on windows, download a copy <a href="https://www.danesparza.net/2011/05/using-the-dig-dns-tool-on-windows-7/">here</a>.</p>
-
 <div class="alert info ">
   <p>All the input is highlight blue.</p>
 </div>
-
 <p>macadoo:~ mrunkel$ <span class="highlight-text primary">dig untangle.com mx</span></p>
-
 <pre><code>; &lt;&lt;&gt;&gt; DiG 9.4.2-P2 &lt;&lt;&gt;&gt; untangle.com mx
 ;; global options:  printcmd
 ;; Got answer:
@@ -318,19 +307,13 @@ mail.untangle.com.	170	IN	A	198.144.196.58
 ;; MSG SIZE  rcvd: 67
 
 macadoo:~ mrunkel$
-</code></pre>
-
-<div class="alert info ">
+</code></pre><div class="alert info ">
   <p>You can specify a DNS server by appending @&lt;DNS Server Name/IP&gt; to the command line.  This can be useful to force a check of the &ldquo;public&rdquo; DNS system vs. what your internal DNS server says.</p>
 </div>
-
 <p>So, what just happend?  Using the dig command line program, we asked the default DNS server for the MX (Mail eXchange) record for the domain unangle.com.  then dig printed a bunch of info.</p>
-
 <p>After &ldquo;Got Answer&rdquo; we have a bunch of status information.  Under QUESTION SECTION, we see the question we asked.  Under ANSWER SECTION is the answer to our query.
 In the ADDITIONAL SECTION is a further lookup, because the answer we received included a</p>
-
 <p>Once you have the IP address of the server, you can telnet to port 25.. (If you&rsquo;ll notice, I&rsquo;ve replaced all the TLD&rsquo;s with .spam in order to keep spam scrapers from getting my email addresses.</p>
-
 <pre><code>macadoo:~ mrunkel$ <span class="highlight-text primary">telnet mail.untangle.com 25</span>
 Trying 198.144.196.58...
 Connected to mail.untangle.spam.
@@ -360,10 +343,7 @@ m.
 221 mail.untangle.spam closing connection
 Connection closed by foreign host.
 macadoo:~ mrunkel$
-</code></pre>
-
-<p>Here&rsquo;s what we did:</p>
-
+</code></pre><p>Here&rsquo;s what we did:</p>
 <ol>
 <li>We connected to the receiving mail server</li>
 <li>We identified ourselves to the server with the HELO command</li>
@@ -371,13 +351,10 @@ macadoo:~ mrunkel$
 <li>We told the server where the mail was going</li>
 <li>We gave the actual payload (the message) to the server.</li>
 </ol>
-
 <p>200 messages are &ldquo;ok&rdquo;
 300 messages are &ldquo;ok but i need more info&rdquo;
 400 and 500 messages are &ldquo;you screwed up&rdquo;</p>
-
 <h2 id="notes-and-troubleshooting-tips">Notes and troubleshooting tips</h2>
-
 <ul>
 <li>Some servers don&rsquo;t like backspaces, so if you enter one, you might need to enter the command again.</li>
 <li>Terminate the email body with a blank line, a period, and another blank line.</li>
@@ -391,7 +368,6 @@ macadoo:~ mrunkel$
 <li>In the DATA portion, the first part is the &lsquo;soft&rsquo; headers. You can add headers here for the remote client to interpret and include. They are optional. Email body starts either immediately or after a blank line if you include headers.</li>
 <li>Usually, if you can get to the DATA portion, everything is working fine.</li>
 </ul>
-
 <p>For more information on SMTP check out the <a href="https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol">wikipedia page</a>.</p>
               
             </div>
@@ -477,7 +453,7 @@ macadoo:~ mrunkel$
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2017 Marc Runkel. All Rights Reserved
+    &copy; 2021 Marc Runkel. All Rights Reserved
   </span>
 </footer>
 
@@ -617,117 +593,7 @@ macadoo:~ mrunkel$
                   Sep 9, 2017
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather"><p><strong>Most of what you&rsquo;ve been told about generating a good password is wrong.</strong>  The well intentioned advice of pick a phrase and then obfuscate (ie, Fish Tacos are Delicious becomes F1$hT4c05rD3l1c10u5) it is still valid, but a bit misguided and not enough.<br />
-</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://runkel.org/2017/07/drawing-a-network-diagram/">
-                <h3 class="media-heading">Drawing a Network Diagram</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jul 7, 2017
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>When drawing a network diagram, think about whether it makes sense to draw a logical or a physical diagram. I&rsquo;d say 90% of the time, a logical diagram is more useful than a physical diagram.
-</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://runkel.org/2017/07/things-i-believe/">
-                <h3 class="media-heading">Things I Believe</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jul 7, 2017
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>Over the years, I&rsquo;ve encountered a lot of a technology platforms, programming methodologies, and ways of doing business.     During that time, I&rsquo;ve come up with thoughts and ideas that guide me through my working life.  This is of course the ideal.  I&rsquo;ve fallen short many times and will continue to do so I&rsquo;m sure (See below&hellip;).
-</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://runkel.org/2017/03/terminating-torrents/">
-                <h3 class="media-heading">Terminating Torrents</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Mar 3, 2017
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>I don&rsquo;t often Torrent, but when I do, it&rsquo;s my business and no one else&rsquo;s.
-
-So, this is a quick write up for how to pause your torrents if your VPN goes down.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://runkel.org/2017/03/updating-all-lxd-containers/">
-                <h3 class="media-heading">Updating All LXD Containers</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Mar 3, 2017
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>This script allows you to upgrade the OS on all your lxd containers. It could easily be modified to run whatever you&rsquo;d like.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://runkel.org/2016/09/the-only-important-rule-of-the-scrum-process./">
-                <h3 class="media-heading">The only important rule of the Scrum process.</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Sep 9, 2016
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>There are many blog posts about scrum.  There are sacred texts and high-priests.  
-<em>Most of that stuff is malarkey.</em>    If your company has a full time Agile Coach, run for the hills.   Also, if you&rsquo;re a full time agile coach, stop reading. You&rsquo;re not going to like what I say.
-
-Most of the scrum process can be tailored and adjusted for your workflow.  The true magic of the scrum process in the inviolability of the scrum.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://runkel.org/2008/08/troubleshooting-smtp/">
-                <h3 class="media-heading">Troubleshooting SMTP</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Aug 8, 2008
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>Internet email is easy to troubleshoot if you do it step by step.   This is a quick guide to troubleshooting what&rsquo;s wrong when you can&rsquo;t send or receive email.</p></div>
+              <div class="media-content hide-xs font-merryweather"><p><strong>Most of what you&rsquo;ve been told about generating a good password is wrong.</strong>  The well intentioned advice of pick a phrase and then obfuscate (ie, Fish Tacos are Delicious becomes F1$hT4c05rD3l1c10u5) it is still valid, but a bit misguided and not enough.</p></div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -745,6 +611,109 @@ Most of the scrum process can be tailored and adjusted for your workflow.  The 
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather"></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://runkel.org/2017/07/drawing-a-network-diagram/">
+                <h3 class="media-heading">Drawing a Network Diagram</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jul 7, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>When drawing a network diagram, think about whether it makes sense to draw a logical or a physical diagram. I&rsquo;d say 90% of the time, a logical diagram is more useful than a physical diagram.</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://runkel.org/2017/07/things-i-believe/">
+                <h3 class="media-heading">Things I Believe</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jul 7, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>Over the years, I&rsquo;ve encountered a lot of a technology platforms, programming methodologies, and ways of doing business.     During that time, I&rsquo;ve come up with thoughts and ideas that guide me through my working life.  This is of course the ideal.  I&rsquo;ve fallen short many times and will continue to do so I&rsquo;m sure (See below&hellip;).</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://runkel.org/2017/03/terminating-torrents/">
+                <h3 class="media-heading">Terminating Torrents</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>I don&rsquo;t often Torrent, but when I do, it&rsquo;s my business and no one else&rsquo;s.</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://runkel.org/2017/03/updating-all-lxd-containers/">
+                <h3 class="media-heading">Updating All LXD Containers</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://runkel.org/2016/09/the-only-important-rule-of-the-scrum-process./">
+                <h3 class="media-heading">The only important rule of the Scrum process.</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>There are many blog posts about scrum.  There are sacred texts and high-priests.  
+<em>Most of that stuff is malarkey.</em>    If your company has a full time Agile Coach, run for the hills.   Also, if you&rsquo;re a full time agile coach, stop reading. You&rsquo;re not going to like what I say.</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://runkel.org/2008/08/troubleshooting-smtp/">
+                <h3 class="media-heading">Troubleshooting SMTP</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2008
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>Internet email is easy to troubleshoot if you do it step by step.   This is a quick guide to troubleshooting what&rsquo;s wrong when you can&rsquo;t send or receive email.</p></div>
             </div>
             <div style="clear:both;"></div>
             <hr>

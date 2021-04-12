@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/build/app.css">
+  
+  
+  <title>Marc Runkel&#39;s Blog | How to Pick a Password</title>
+</head>
+<body>
+<div class="relative bg-white">
+  <div class="flex justify-between items-center px-4 py-6 sm:px-6 md:justify-start md:space-x-10">
+    <div>
+      <a href="/" class="flex">
+        <span class="sr-only">runkel</span>
+        <img class="h-8 w-auto sm:h-10" src="/images/avatar.jpg" alt="">
+      </a>
+    </div>
+    <div class="hidden md:flex-1 md:flex md:items-center md:justify-between">
+      <div class="flex space-x-10">
+      </div>
+      <div class="flex items-center md:ml-12">
+        <a href="/page/about" class="text-base font-medium text-gray-500 hover:text-gray-900">
+          About Me
+        </a>
+        <a href="/resume" class="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
+          Resume
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="content">
+<h1 class="text-3xl">How to Pick a Password</h1>
+<div class="space-y-4">
+  
+
+<div class="float-right">
+  <i class="fa fa-calendar"></i>
+  <time datetime="2017-09-28">Sep 28, 2017</time>
+  
+  <i class="fa fa-tag"></i>
+  
+    
+    <a class="btn btn-sm btn-outline-dark tag-btn" href="https://runkel.org/tags/principles">principles</a>
+    
+    
+    <a class="btn btn-sm btn-outline-dark tag-btn" href="https://runkel.org/tags/thoughts">thoughts</a>
+    
+  
+</div>
+
+  <div class="">
+    <p><strong>Most of what you&rsquo;ve been told about generating a good password is wrong.</strong>  The well intentioned advice of pick a phrase and then obfuscate (ie, Fish Tacos are Delicious becomes F1$hT4c05rD3l1c10u5) it is still valid, but a bit misguided and not enough.</p>
+<p>Passwords need to be long, otherwise they are easily cracked with today&rsquo;s computing power.  Passwords don&rsquo;t necessarily need to have special characters, but they need to be <em>unique per site</em> and they should be <em>memorable</em> so that <em>humans can remember them</em>.
+The problem with short reused passwords crops up when a site like adobe, linkedin, or myspace gets hacked and their password database gets dumped.</p>
+<p>The result is that the cracker now has a list that looks like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">username:$6$bW9sX7mu$EGhkfoeBmV74.mA8eM5P.iqJr3e3vM/pyrT90CsY4OM1u8DTJf1WkfQufK2G5S7hSYiAvAPviR
+</code></pre></div><p>That long string is a representation of a number (a very long number).  That number is calculated by turning your password into a number and doing some math on it.   It only works one way. There is no way to take that number, do math on it and get your password.    This is called a &ldquo;one way hash.&rdquo;
+When you login to a system, it takes the password you just typed in, performs the same set of math functions on it and sees if the resulting numbers match.  If they do, then you&rsquo;ve typed in the same password as what was stored.</p>
+<p>So, why is it a problem that the hacker has a list of usernames and hashes if the hash can&rsquo;t reveal your password?  Because they can now perform many many operations against that hash to try and guess your password.   This is similar to trying every key in the world against a lock until you find the one that opens it.  In the physical world, that&rsquo;s a daunting task, but digitally, with today&rsquo;s computational power, tens of thousands of guesses can be made per second.</p>
+<p><strong>Your only defense is a long password phrase.</strong></p>
+<p>This clever cartoon from <a href="http://www.xkcd.com">xkcd</a> summarizes the situation beautifully:</p>
+<figure><a href="https://xkcd.com/936/">
+    <img src="/images/xkcd-pick-password.png"/> </a>
+</figure>
+
+<h2 id="here-is-a-good-common-sense-password-policy">Here is a good common sense password policy:</h2>
+<ol>
+<li><em>Longer</em> is much better than <em>short</em>. Aim for at least <strong>16</strong> characters.</li>
+<li>You don&rsquo;t need to include &ldquo;special characters&rdquo;.</li>
+<li><strong>You don&rsquo;t need to change it every 90 days.</strong>  Unfortunately this rule is enshrined in many &lsquo;best&rsquo; practices including the mostly braindead PCI rules.  So you may be forced to change your password.</li>
+<li><strong>Make it a sentence that you will always remember.</strong></li>
+<li><strong>Don&rsquo;t reuse passwords.</strong></li>
+<li>Use a password manager!!!  I highly recommend <a href="https://1password.com/">1Password</a></li>
+<li>Seriously, <strong>Don&rsquo;t reuse passwords.</strong></li>
+<li>Enable multi-factor authentication.   Google supports it, so do most other services.  Use it.  It&rsquo;s a small pain in the ass, but getting your account hacked is a much bigger one.</li>
+<li>Can&rsquo;t think of a good phrase?  Use a <a href="http://correcthorsebatterystaple.net/">generator</a> or use 1Password.  It has a built in password generator.</li>
+</ol>
+  </div>
+</div>
+
+        </div><footer class="bg-white">
+  <div class="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
+    <nav class="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
+      <div class="px-5 py-2">
+        <a href="/page/about" class="text-base text-gray-500 hover:text-gray-900">
+          About
+        </a>
+      </div>
+
+      <div class="px-5 py-2">
+        <a href="/resume" class="text-base text-gray-500 hover:text-gray-900">
+          Resume
+        </a>
+      </div>
+
+      <div class="px-5 py-2">
+        <a href="/categories" class="text-base text-gray-500 hover:text-gray-900">
+          Categories
+        </a>
+      </div>
+
+      <div class="px-5 py-2">
+        <a href="/tags" class="text-base text-gray-500 hover:text-gray-900">
+          Tags
+        </a>
+      </div>
+
+    </nav>
+    <div class="mt-8 flex justify-center space-x-6">
+      <a href="https://www.instagram.com/marcrunkel/" class="text-gray-400 hover:text-gray-500">
+        <span class="sr-only">Instagram</span>
+        <i class="fab fa-instagram"></i>
+      </a>
+
+      <a href="https://twitter.com/mrunkel" class="text-gray-400 hover:text-gray-500">
+        <span class="sr-only">Twitter</span>
+        <i class="fab fa-twitter"></i>
+      </a>
+
+      <a href="https://github.com/mrunkel" class="text-gray-400 hover:text-gray-500">
+        <span class="sr-only">GitHub</span>
+        <i class="fab fa-github"></i>
+      </a>
+
+    </div>
+    <p class="mt-8 text-center text-base text-gray-400">
+      &copy; 2021 Marc Runkel. All rights reserved.
+    </p>
+  </div>
+</footer>
+</body>
+</html>

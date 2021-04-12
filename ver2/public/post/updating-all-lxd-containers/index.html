@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/build/app.css">
+  
+  
+  <title>Marc Runkel&#39;s Blog | Updating All LXD Containers</title>
+</head>
+<body>
+<div class="relative bg-white">
+  <div class="flex justify-between items-center px-4 py-6 sm:px-6 md:justify-start md:space-x-10">
+    <div>
+      <a href="/" class="flex">
+        <span class="sr-only">runkel</span>
+        <img class="h-8 w-auto sm:h-10" src="/images/avatar.jpg" alt="">
+      </a>
+    </div>
+    <div class="hidden md:flex-1 md:flex md:items-center md:justify-between">
+      <div class="flex space-x-10">
+      </div>
+      <div class="flex items-center md:ml-12">
+        <a href="/page/about" class="text-base font-medium text-gray-500 hover:text-gray-900">
+          About Me
+        </a>
+        <a href="/resume" class="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
+          Resume
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="content">
+<h1 class="text-3xl">Updating All LXD Containers</h1>
+<div class="space-y-4">
+  
+
+<div class="float-right">
+  <i class="fa fa-calendar"></i>
+  <time datetime="2017-03-02">Mar 2, 2017</time>
+  
+  <i class="fa fa-tag"></i>
+  
+    
+    <a class="btn btn-sm btn-outline-dark tag-btn" href="https://runkel.org/tags/lxc">LXC</a>
+    
+    
+    <a class="btn btn-sm btn-outline-dark tag-btn" href="https://runkel.org/tags/lxd">LXD</a>
+    
+  
+</div>
+
+  <div class="">
+    <p>This script allows you to upgrade the OS on all your lxd containers. It could easily be modified to run whatever you&rsquo;d like.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span> <span style="color:#75715e"># A simple shell script to update all lxd container hypervisor</span>
+ <span style="color:#75715e"># URL: https://bash.cyberciti.biz/virtualization/shell-script-to-update-all-lxd-container-hypervisor/</span>
+ <span style="color:#75715e"># Tested on : Ubuntu 16.04 LTS lxd server</span>
+ <span style="color:#75715e"># Tested on : Ubuntu/Debian lxd container hypervisor only</span>
+ <span style="color:#75715e"># ----------------------------------------------------------------------------</span>
+ <span style="color:#75715e"># Author: nixCraft</span>
+ <span style="color:#75715e"># Copyright: 2016 nixCraft under GNU GPL v2.0+</span>
+ <span style="color:#75715e"># ----------------------------------------------------------------------------</span>
+ <span style="color:#75715e"># Last updated 14 Aug 2016</span>
+ <span style="color:#75715e"># ----------------------------------------------------------------------------</span>
+ <span style="color:#75715e"># Set full path to bins</span>
+ _apt<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/usr/bin/apt-get&#34;</span>
+ _lxc<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/usr/bin/lxc&#34;</span>
+ _awk<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/usr/bin/awk&#34;</span>
+ <span style="color:#75715e"># Get containers list</span>
+ clist<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span><span style="color:#e6db74">${</span>_lxc<span style="color:#e6db74">}</span> list -c ns | <span style="color:#e6db74">${</span>_awk<span style="color:#e6db74">}</span> <span style="color:#e6db74">&#39;!/NAME/{ if ( $4 == &#34;RUNNING&#34; ) print $2}&#39;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+ <span style="color:#75715e"># Use bash for loop and update all container hypervisor powered by Debian or Ubuntu</span>
+ <span style="color:#75715e"># NOTE: for CentOS use yum command instead of apt-get</span>
+ <span style="color:#66d9ef">for</span> c in $clist
+ <span style="color:#66d9ef">do</span>
+ echo <span style="color:#e6db74">&#34;Updating Debian/Ubuntu container hypervisor \&#34;</span>$c<span style="color:#e6db74">\&#34;...&#34;</span>
+ <span style="color:#e6db74">${</span>_lxc<span style="color:#e6db74">}</span> exec $c <span style="color:#e6db74">${</span>_apt<span style="color:#e6db74">}</span> -- -qq update
+ <span style="color:#e6db74">${</span>_lxc<span style="color:#e6db74">}</span> exec $c <span style="color:#e6db74">${</span>_apt<span style="color:#e6db74">}</span> -- -qq -y upgrade
+ <span style="color:#e6db74">${</span>_lxc<span style="color:#e6db74">}</span> exec $c <span style="color:#e6db74">${</span>_apt<span style="color:#e6db74">}</span> -- -qq -y clean
+ <span style="color:#e6db74">${</span>_lxc<span style="color:#e6db74">}</span> exec $c <span style="color:#e6db74">${</span>_apt<span style="color:#e6db74">}</span> -- -qq -y autoclean
+</code></pre></div>
+  </div>
+</div>
+
+        </div><footer class="bg-white">
+  <div class="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
+    <nav class="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
+      <div class="px-5 py-2">
+        <a href="/page/about" class="text-base text-gray-500 hover:text-gray-900">
+          About
+        </a>
+      </div>
+
+      <div class="px-5 py-2">
+        <a href="/resume" class="text-base text-gray-500 hover:text-gray-900">
+          Resume
+        </a>
+      </div>
+
+      <div class="px-5 py-2">
+        <a href="/categories" class="text-base text-gray-500 hover:text-gray-900">
+          Categories
+        </a>
+      </div>
+
+      <div class="px-5 py-2">
+        <a href="/tags" class="text-base text-gray-500 hover:text-gray-900">
+          Tags
+        </a>
+      </div>
+
+    </nav>
+    <div class="mt-8 flex justify-center space-x-6">
+      <a href="https://www.instagram.com/marcrunkel/" class="text-gray-400 hover:text-gray-500">
+        <span class="sr-only">Instagram</span>
+        <i class="fab fa-instagram"></i>
+      </a>
+
+      <a href="https://twitter.com/mrunkel" class="text-gray-400 hover:text-gray-500">
+        <span class="sr-only">Twitter</span>
+        <i class="fab fa-twitter"></i>
+      </a>
+
+      <a href="https://github.com/mrunkel" class="text-gray-400 hover:text-gray-500">
+        <span class="sr-only">GitHub</span>
+        <i class="fab fa-github"></i>
+      </a>
+
+    </div>
+    <p class="mt-8 text-center text-base text-gray-400">
+      &copy; 2021 Marc Runkel. All rights reserved.
+    </p>
+  </div>
+</footer>
+</body>
+</html>

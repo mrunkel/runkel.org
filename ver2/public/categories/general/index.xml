@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>general on Marc Runkel&#39;s Blog</title>
+    <link>https://runkel.org/categories/general/</link>
+    <description>Recent content in general on Marc Runkel&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 28 Sep 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://runkel.org/categories/general/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Pick a Password</title>
+      <link>https://runkel.org/post/pick-a-password/</link>
+      <pubDate>Thu, 28 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://runkel.org/post/pick-a-password/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Most of what you&amp;rsquo;ve been told about generating a good password is wrong.&lt;/strong&gt;  The well intentioned advice of pick a phrase and then obfuscate (ie, Fish Tacos are Delicious becomes F1$hT4c05rD3l1c10u5) it is still valid, but a bit misguided and not enough.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Things I Believe</title>
+      <link>https://runkel.org/post/things-i-believe/</link>
+      <pubDate>Mon, 10 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://runkel.org/post/things-i-believe/</guid>
+      <description>&lt;p&gt;Over the years, I&amp;rsquo;ve encountered a lot of a technology platforms, programming methodologies, and ways of doing business.     During that time, I&amp;rsquo;ve come up with thoughts and ideas that guide me through my working life.  This is of course the ideal.  I&amp;rsquo;ve fallen short many times and will continue to do so I&amp;rsquo;m sure (See below&amp;hellip;).&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

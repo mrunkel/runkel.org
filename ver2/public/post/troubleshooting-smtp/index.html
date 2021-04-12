@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/build/app.css">
+  
+  
+  <title>Marc Runkel&#39;s Blog | Troubleshooting SMTP</title>
+</head>
+<body>
+<div class="relative bg-white">
+  <div class="flex justify-between items-center px-4 py-6 sm:px-6 md:justify-start md:space-x-10">
+    <div>
+      <a href="/" class="flex">
+        <span class="sr-only">runkel</span>
+        <img class="h-8 w-auto sm:h-10" src="/images/avatar.jpg" alt="">
+      </a>
+    </div>
+    <div class="hidden md:flex-1 md:flex md:items-center md:justify-between">
+      <div class="flex space-x-10">
+      </div>
+      <div class="flex items-center md:ml-12">
+        <a href="/page/about" class="text-base font-medium text-gray-500 hover:text-gray-900">
+          About Me
+        </a>
+        <a href="/resume" class="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
+          Resume
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="content">
+<h1 class="text-3xl">Troubleshooting SMTP</h1>
+<div class="space-y-4">
+  
+
+<div class="float-right">
+  <i class="fa fa-calendar"></i>
+  <time datetime="2008-08-13">Aug 13, 2008</time>
+  
+  <i class="fa fa-tag"></i>
+  
+    
+    <a class="btn btn-sm btn-outline-dark tag-btn" href="https://runkel.org/tags/smtp">SMTP</a>
+    
+    
+    <a class="btn btn-sm btn-outline-dark tag-btn" href="https://runkel.org/tags/email">email</a>
+    
+    
+    <a class="btn btn-sm btn-outline-dark tag-btn" href="https://runkel.org/tags/troubleshooting">troubleshooting</a>
+    
+  
+</div>
+
+  <div class="">
+    <p>Internet email is easy to troubleshoot if you do it step by step.   This is a quick guide to troubleshooting what&rsquo;s wrong when you can&rsquo;t send or receive email.</p>
+<p><em>Note: This article was written almost 10 years ago.  While it&rsquo;s still mostly true, it doesn&rsquo;t talk about encryption at all, which is fairly commonplace in the world of SMTP today.  Back then SPF and DKIM weren&rsquo;t around either.   For basic troubleshooting, it&rsquo;s still valid.</em></p>
+<p>Here&rsquo;s how it works, when you write your email, it gets submitted into the mail system and, if the destination is off server, ends up with your sending servers SMTP subsystem.</p>
+<p>I&rsquo;m not going to talk about how to configure your email, there are lots of really terrific guides on the Internet on how to do that (just google &ldquo;set up &lt;name of email software on <!-- raw HTML omitted -->&quot;).  I&rsquo;m going to talk about how to figure out what is wrong when it doesn&rsquo;t work after you&rsquo;ve completed all theose steps.</p>
+<p>Here&rsquo;s what normally happens:</p>
+<ol>
+<li>The SMTP server program tries to figure out where to send your email. This is done by doing a DNS lookup for an MX record on the domain part of the address. (If there is no MX record, it will do a normal query for the domain part, if that doesn&rsquo;t work, you get a bounce message saying that the message couldn&rsquo;t be delivered.  If your system is really borked, that message will be sitting in the outgoing mail queue too!).</li>
+<li>The server attempts to open a connection on TCP port 25 to the remote IP determined in step 1 above.</li>
+<li>If successful, it does it&rsquo;s handshaking to determine encryption, authentication, etc.</li>
+<li>It sends the message.   Once it gets the OK from the remote side, it deletes the message.</li>
+</ol>
+<p>While cofiguring a new mail server (or moving it to a new IP) there are lots of things that need to work just to make basic mail flow, particularly from the world in.</p>
+<p>I&rsquo;ve always found it useful to perform these steps manually in order to identify where things might not be working.</p>
+<h2 id="replicating-the-process">Replicating the process</h2>
+<p>Start off by doing a dig on the domain name in question.   If you&rsquo;re on MacOS, you&rsquo;re in luck, dig is installed by default.  If you&rsquo;re on windows, download a copy <a href="https://www.danesparza.net/2011/05/using-the-dig-dns-tool-on-windows-7/">here</a>.</p>
+<div class="alert info ">
+  <p>All the input is highlight blue.</p>
+</div>
+<p>macadoo:~ mrunkel$ <span class="highlight-text primary">dig untangle.com mx</span></p>
+<pre><code>; &lt;&lt;&gt;&gt; DiG 9.4.2-P2 &lt;&lt;&gt;&gt; untangle.com mx
+;; global options:  printcmd
+;; Got answer:
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 32638
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; QUESTION SECTION:
+;untangle.com.			IN	MX
+
+;; ANSWER SECTION:
+untangle.com.		202	IN	MX	10 mail.untangle.com.
+
+;; ADDITIONAL SECTION:
+mail.untangle.com.	170	IN	A	198.144.196.58
+
+;; Query time: 1 msec
+;; SERVER: 10.0.0.1#53(10.0.0.1)
+;; WHEN: Mon Nov  3 11:27:34 2008
+;; MSG SIZE  rcvd: 67
+
+macadoo:~ mrunkel$
+</code></pre><div class="alert info ">
+  <p>You can specify a DNS server by appending @&lt;DNS Server Name/IP&gt; to the command line.  This can be useful to force a check of the &ldquo;public&rdquo; DNS system vs. what your internal DNS server says.</p>
+</div>
+<p>So, what just happend?  Using the dig command line program, we asked the default DNS server for the MX (Mail eXchange) record for the domain unangle.com.  then dig printed a bunch of info.</p>
+<p>After &ldquo;Got Answer&rdquo; we have a bunch of status information.  Under QUESTION SECTION, we see the question we asked.  Under ANSWER SECTION is the answer to our query.
+In the ADDITIONAL SECTION is a further lookup, because the answer we received included a</p>
+<p>Once you have the IP address of the server, you can telnet to port 25.. (If you&rsquo;ll notice, I&rsquo;ve replaced all the TLD&rsquo;s with .spam in order to keep spam scrapers from getting my email addresses.</p>
+<pre><code>macadoo:~ mrunkel$ <span class="highlight-text primary">telnet mail.untangle.com 25</span>
+Trying 198.144.196.58...
+Connected to mail.untangle.spam.
+Escape character is '^]'.
+220 mail.untangle.spam ESMTP Exim 4.63 Mon, 03 Nov 2008 11:32:19 -0800
+<span class="highlight-text primary">HELO host51.untangle.spam</span>
+250 mail.untangle.spam Hello host51.untangle.spam [198.144.196.51]
+<span class="highlight-text primary">MAIL FROM: marc@runkel.spam</span>
+250 OK
+<span class="highlight-text primary">RCPT TO: mrunkel@untangle.spam</span>
+250 Accepted
+<span class="highlight-text primary">DATA</span>
+354 Start mail input; end with &lt;CRLF&gt;.&lt;CRLF&gt;
+<span class="highlight-text primary">From: marc@runkel.spam
+To: marc@runkel.spam
+Date: yesterday
+Subject: Test email
+
+This is a test email.  Have fun reading it later.
+
+m.
+
+.
+</span>
+250 OK id=1Kx5CE-0004Iq-9s
+<span class="highlight-text primary">QUIT</span>
+221 mail.untangle.spam closing connection
+Connection closed by foreign host.
+macadoo:~ mrunkel$
+</code></pre><p>Here&rsquo;s what we did:</p>
+<ol>
+<li>We connected to the receiving mail server</li>
+<li>We identified ourselves to the server with the HELO command</li>
+<li>We told the server where the mail was from</li>
+<li>We told the server where the mail was going</li>
+<li>We gave the actual payload (the message) to the server.</li>
+</ol>
+<p>200 messages are &ldquo;ok&rdquo;
+300 messages are &ldquo;ok but i need more info&rdquo;
+400 and 500 messages are &ldquo;you screwed up&rdquo;</p>
+<h2 id="notes-and-troubleshooting-tips">Notes and troubleshooting tips</h2>
+<ul>
+<li>Some servers don&rsquo;t like backspaces, so if you enter one, you might need to enter the command again.</li>
+<li>Terminate the email body with a blank line, a period, and another blank line.</li>
+<li>If you use the hostname instead of the IP to telnet, make sure they resolve to the same thing.</li>
+<li>If you can&rsquo;t connect, then you have a firewall or port forward issue.</li>
+<li>If your server doesn&rsquo;t announce it&rsquo;s publicly resolvable domain name in the first 220 line, you might have some problems with strict senders.</li>
+<li>Some servers will disconnect you if your publicly resolvable name doesn&rsquo;t match what you type on the HELO line.</li>
+<li>If you get disconnected after MAIL FROM:, you probably have an RBL problem on your sending IP. Go to SpamHaus and check.</li>
+<li>If you get errors on RCPT TO: then your mail server isn&rsquo;t configured to accept mail for the correct domains.</li>
+<li>If you get relaying denied, your server is either mis-configured for relaying the right IP ranges, or you need to authenticate to the server. You should never set up your server to relay from any public IP space. It&rsquo;s just too risky. If you do have to, make sure it&rsquo;s restricted to IPs that only you have access too.</li>
+<li>In the DATA portion, the first part is the &lsquo;soft&rsquo; headers. You can add headers here for the remote client to interpret and include. They are optional. Email body starts either immediately or after a blank line if you include headers.</li>
+<li>Usually, if you can get to the DATA portion, everything is working fine.</li>
+</ul>
+<p>For more information on SMTP check out the <a href="https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol">wikipedia page</a>.</p>
+  </div>
+</div>
+
+        </div><footer class="bg-white">
+  <div class="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
+    <nav class="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
+      <div class="px-5 py-2">
+        <a href="/page/about" class="text-base text-gray-500 hover:text-gray-900">
+          About
+        </a>
+      </div>
+
+      <div class="px-5 py-2">
+        <a href="/resume" class="text-base text-gray-500 hover:text-gray-900">
+          Resume
+        </a>
+      </div>
+
+      <div class="px-5 py-2">
+        <a href="/categories" class="text-base text-gray-500 hover:text-gray-900">
+          Categories
+        </a>
+      </div>
+
+      <div class="px-5 py-2">
+        <a href="/tags" class="text-base text-gray-500 hover:text-gray-900">
+          Tags
+        </a>
+      </div>
+
+    </nav>
+    <div class="mt-8 flex justify-center space-x-6">
+      <a href="https://www.instagram.com/marcrunkel/" class="text-gray-400 hover:text-gray-500">
+        <span class="sr-only">Instagram</span>
+        <i class="fab fa-instagram"></i>
+      </a>
+
+      <a href="https://twitter.com/mrunkel" class="text-gray-400 hover:text-gray-500">
+        <span class="sr-only">Twitter</span>
+        <i class="fab fa-twitter"></i>
+      </a>
+
+      <a href="https://github.com/mrunkel" class="text-gray-400 hover:text-gray-500">
+        <span class="sr-only">GitHub</span>
+        <i class="fab fa-github"></i>
+      </a>
+
+    </div>
+    <p class="mt-8 text-center text-base text-gray-400">
+      &copy; 2021 Marc Runkel. All rights reserved.
+    </p>
+  </div>
+</footer>
+</body>
+</html>
