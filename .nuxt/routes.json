@@ -1,0 +1,26 @@
+[
+  {
+    "name": "blog-slug",
+    "path": "/blog/:slug?",
+    "component": "/Users/mrunkel/Projects/runkel.org/pages/blog/_slug.vue",
+    "chunkName": "pages/blog/_slug"
+  },
+  {
+    "name": "page-slug",
+    "path": "/page/:slug?",
+    "component": "/Users/mrunkel/Projects/runkel.org/pages/page/_slug.vue",
+    "chunkName": "pages/page/_slug"
+  },
+  {
+    "name": "tags-slug",
+    "path": "/tags/:slug?",
+    "component": "/Users/mrunkel/Projects/runkel.org/pages/tags/_slug.vue",
+    "chunkName": "pages/tags/_slug"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/mrunkel/Projects/runkel.org/pages/index.vue",
+    "chunkName": "pages/index"
+  }
+]
