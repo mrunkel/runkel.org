@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tags/Chocolate", {data:[{articles:[]}],fetch:{},mutations:void 0});
